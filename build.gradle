@@ -24,6 +24,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
 	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.0.2'
 
+
 	// https://mvnrepository.com/artifact/com.atlassian.jira/jira-rest-java-client-core
 	//implementation group: 'com.atlassian.jira', name: 'jira-rest-java-client-core', version: '5.2.2'
 
