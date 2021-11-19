@@ -30,6 +30,8 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/com.atlassian.fugue/fugue
 	//compileOnly group: 'com.atlassian.fugue', name: 'fugue', version: '2.6.2'
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '0.11.0'
 
 }
 
