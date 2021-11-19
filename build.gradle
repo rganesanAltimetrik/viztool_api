@@ -25,10 +25,10 @@ dependencies {
 	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.0.2'
 
 	// https://mvnrepository.com/artifact/com.atlassian.jira/jira-rest-java-client-core
-	implementation group: 'com.atlassian.jira', name: 'jira-rest-java-client-core', version: '5.2.2'
+	//implementation group: 'com.atlassian.jira', name: 'jira-rest-java-client-core', version: '5.2.2'
 
 	// https://mvnrepository.com/artifact/com.atlassian.fugue/fugue
-	compileOnly group: 'com.atlassian.fugue', name: 'fugue', version: '2.6.2'
+	//compileOnly group: 'com.atlassian.fugue', name: 'fugue', version: '2.6.2'
 
 }
 
