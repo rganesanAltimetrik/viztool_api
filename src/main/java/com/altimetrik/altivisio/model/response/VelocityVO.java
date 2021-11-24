@@ -1,12 +1,16 @@
 package com.altimetrik.altivisio.model.response;
 
+import com.altimetrik.altivisio.model.Domain;
 import com.altimetrik.altivisio.model.ScrumTeam;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
 
 
 public class VelocityVO {
+
+    List<Domain> domain;
 
     private String teamName;
     private String domainName;
