@@ -1,5 +1,7 @@
 package com.altimetrik.altivisio.controller;
 
+import com.altimetrik.altivisio.model.Domain;
+import com.altimetrik.altivisio.model.Project;
 import com.altimetrik.altivisio.model.response.SprintDeliveryVO;
 import com.altimetrik.altivisio.model.response.VelocityVO;
 import org.springframework.http.HttpStatus;
@@ -9,17 +11,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("metrics")
+@RestController("api/v1")
 public class ScrumMetricController {
 
-    @GetMapping("velocity/{projectId}")
+    @GetMapping("metrics/{projectId}")
     @ResponseBody
-    public ResponseEntity<VelocityVO> velocityMetrics(@PathVariable int projectId){
-        return new ResponseEntity<>(new VelocityVO(), HttpStatus.OK);
+    public ResponseEntity<Project> velocityMetrics(@PathVariable int projectId){
+        return new ResponseEntity<>(new Project(), HttpStatus.OK);
     }
 
-    @GetMapping("sprint/delivery/{projectId}/{teamId}")
-    public ResponseEntity<SprintDeliveryVO> sprintDelivery(@PathVariable int projectId, @PathVariable int teamId){
-        return new ResponseEntity<>(new SprintDeliveryVO(), HttpStatus.OK);
+    @GetMapping("metrics/{projectId}/{domainId}")
+    public ResponseEntity<Domain> sprintDelivery(@PathVariable int projectId, @PathVariable int domainId){
+        return new ResponseEntity<>(new Domain(), HttpStatus.OK);
     }
 }
