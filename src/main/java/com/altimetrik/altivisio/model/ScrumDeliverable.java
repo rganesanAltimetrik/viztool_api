@@ -3,10 +3,8 @@ package com.altimetrik.altivisio.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "scrumDelivarable")
@@ -16,7 +14,7 @@ public class ScrumDeliverable {
     private int id;
 
     @Column(name = "ScrumMetricsId")
-    private ScrumMetric scrumMetric;
+    private int scrumMetricId;
 
     @Column(name = "Metric_ID")
     private int metricId;
@@ -48,7 +46,7 @@ public class ScrumDeliverable {
     public ScrumDeliverable() {
     }
 
-    public ScrumDeliverable(ScrumMetric scrumMetric,
+    public ScrumDeliverable(int scrumMetricId,
                             int metricId,
                             String mbi,
                             String epic,
@@ -58,7 +56,7 @@ public class ScrumDeliverable {
                             String milestoneStatus,
                             String milestoneRemark,
                             String status) {
-        this.scrumMetric = scrumMetric;
+        this.scrumMetricId = scrumMetricId;
         this.metricId = metricId;
         this.mbi = mbi;
         this.epic = epic;
@@ -78,12 +76,12 @@ public class ScrumDeliverable {
         this.id = id;
     }
 
-    public ScrumMetric getScrumMetric() {
-        return scrumMetric;
+    public int getScrumMetric() {
+        return scrumMetricId;
     }
 
-    public void setScrumMetric(ScrumMetric scrumMetric) {
-        this.scrumMetric = scrumMetric;
+    public void setScrumMetric(int scrumMetricId) {
+        this.scrumMetricId = scrumMetricId;
     }
 
     public int getMetricId() {
