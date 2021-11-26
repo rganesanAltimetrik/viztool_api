@@ -24,13 +24,13 @@ public class Domain {
     private String description;
 
     @Column(name = "Engagement_type")
-    private int engagementType;
+    private String engagementType;
 
     @Column(name = "Start_date")
-    private Date startDate;
+    private String startDate;
 
     @Column(name = "End_date")
-    private Date endDate;
+    private String endDate;
 
     @Column(name = "Delivery_model")
     private String deliveryModel;
@@ -59,9 +59,9 @@ public class Domain {
     public Domain(int projectId,
                   String name,
                   String description,
-                  int engagementType,
-                  Date startDate,
-                  Date endDate,
+                  String engagementType,
+                  String startDate,
+                  String endDate,
                   String deliveryModel,
                   String stakeholders,
                   String engineeringManager,
@@ -114,27 +114,27 @@ public class Domain {
         this.description = description;
     }
 
-    public int getEngagementType() {
+    public String getEngagementType() {
         return engagementType;
     }
 
-    public void setEngagementType(int engagementType) {
+    public void setEngagementType(String engagementType) {
         this.engagementType = engagementType;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 

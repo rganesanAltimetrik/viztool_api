@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "scrumTeam")
+@Table(name = "scrumteams")
 public class ScrumTeam {
 
     @Id
