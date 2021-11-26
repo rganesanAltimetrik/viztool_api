@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "scrumMetrics")
+@Table(name = "scrummetrics")
 public class ScrumMetric {
 
     @Id
