@@ -3,17 +3,72 @@ package com.altimetrik.altivisio.model;
 import lombok.Getter;
 import lombok.Setter;
 
-public class SprintDeliverable {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "scrumDelivarable")
+public class ScrumDeliverable {
+
+    @Id
     private int id;
+
+    @Column(name = "ScrumMetricsId")
     private ScrumMetric scrumMetric;
+
+    @Column(name = "Metric_ID")
+    private int metricId;
+
+    @Column(name = "MBI")
     private String mbi;
+
+    @Column(name = "EPI")
     private String epic;
+
+    @Column(name = "EPI_Description")
     private String epicDescription;
+
+    @Column(name = "User_Description")
     private String userDescription;
+
+    @Column(name = "Milestone")
     private String milestone;
+
+    @Column(name = "Milestone_Status")
     private String milestoneStatus;
+
+    @Column(name = "Milestone_Remark")
     private String milestoneRemark;
+
+    @Column(name = "Status")
+    private String status;
+
+    public ScrumDeliverable() {
+    }
+
+    public ScrumDeliverable(ScrumMetric scrumMetric,
+                            int metricId,
+                            String mbi,
+                            String epic,
+                            String epicDescription,
+                            String userDescription,
+                            String milestone,
+                            String milestoneStatus,
+                            String milestoneRemark,
+                            String status) {
+        this.scrumMetric = scrumMetric;
+        this.metricId = metricId;
+        this.mbi = mbi;
+        this.epic = epic;
+        this.epicDescription = epicDescription;
+        this.userDescription = userDescription;
+        this.milestone = milestone;
+        this.milestoneStatus = milestoneStatus;
+        this.milestoneRemark = milestoneRemark;
+        this.status = status;
+    }
 
     public int getId() {
         return id;
@@ -29,6 +84,14 @@ public class SprintDeliverable {
 
     public void setScrumMetric(ScrumMetric scrumMetric) {
         this.scrumMetric = scrumMetric;
+    }
+
+    public int getMetricId() {
+        return metricId;
+    }
+
+    public void setMetricId(int metricId) {
+        this.metricId = metricId;
     }
 
     public String getMbi() {
@@ -86,4 +149,10 @@ public class SprintDeliverable {
     public void setMilestoneRemark(String milestoneRemark) {
         this.milestoneRemark = milestoneRemark;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) { this.status = status; }
 }

@@ -7,13 +7,13 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Project")
+@Table(name = "project")
 public class Project {
 
     @Id
     private int id;
 
-    @Column
+    @Column(name = "name")
     private String name;
 
     @Column(name = "engineering_leader")
