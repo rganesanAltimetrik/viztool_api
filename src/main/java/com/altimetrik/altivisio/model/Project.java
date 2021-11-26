@@ -3,14 +3,32 @@ package com.altimetrik.altivisio.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "Project")
 public class Project {
 
+    @Id
     private int id;
+
+    @Column
     private String name;
+
+    @Column(name = "engineering_leader")
     private String leader;
+
+    @Transient
     List<Domain> domains;
+
+    public Project() {
+    }
+
+    public Project(String name, String leader) {
+        this.name = name;
+        this.leader = leader;
+    }
 
     public int getId() {
         return id;
