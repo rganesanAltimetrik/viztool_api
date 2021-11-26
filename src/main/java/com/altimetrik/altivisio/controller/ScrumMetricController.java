@@ -2,8 +2,6 @@ package com.altimetrik.altivisio.controller;
 
 import com.altimetrik.altivisio.model.Domain;
 import com.altimetrik.altivisio.model.Project;
-import com.altimetrik.altivisio.model.response.SprintDeliveryVO;
-import com.altimetrik.altivisio.model.response.VelocityVO;
 import com.altimetrik.altivisio.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
