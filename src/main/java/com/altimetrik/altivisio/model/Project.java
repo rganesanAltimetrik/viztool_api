@@ -61,4 +61,14 @@ public class Project {
     public void setDomains(List<Domain> domains) {
         this.domains = domains;
     }
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", leader='" + leader + '\'' +
+                ", domains=" + domains +
+                '}';
+    }
 }

@@ -7,4 +7,6 @@ import org.springframework.stereotype.Service;
 public interface ProjectService {
 
     void save(Project project);
+
+    Project get(int projectId);
 }
