@@ -62,5 +62,14 @@ public class Project {
         this.domains = domains;
     }
 
+    @Override
+    public String toString() {
+        return "Project{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", leader='" + leader + '\'' +
+                ", domains=" + domains +
+                '}';
+    }
 
 }

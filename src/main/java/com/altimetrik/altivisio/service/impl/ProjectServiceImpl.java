@@ -27,8 +27,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Map<String,String> getProjectDetails(int projectId) {
-        Map<String, String> projectDetails = projectRepository.getProjectDetail(projectId);
-        return projectDetails;
+    public Project get(int projectId) {
+        return projectRepository.getById(projectId);
     }
 }
