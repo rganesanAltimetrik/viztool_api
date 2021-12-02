@@ -3,21 +3,84 @@ package com.altimetrik.altivisio.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+@Entity
+@Table(name = "domains")
 public class Domain {
+
+    @Id
     private int id;
+
+    @Column(name = "Project_id")
+    private int projectId;
+
+    @Column(name = "Name")
+    private String name;
+
+    @Column(name = "Description")
     private String description;
+
+    @Column(name = "Engagement_type")
     private String engagementType;
-    private Date startDate;
-    private Date endDate;
+
+    @Column(name = "Start_date")
+    private String startDate;
+
+    @Column(name = "End_date")
+    private String endDate;
+
+    @Column(name = "Delivery_model")
     private String deliveryModel;
+
+    @Column(name = "Stakeholders")
     private String stakeholders;
+
+    @Column(name = "Engineering_manager")
     private String engineeringManager;
+
+    @Column(name = "Scrum_master")
     private String scrumMaster;
+
+    @Column(name = "Technology")
     private String technology;
+
+    @Column(name = "Status")
+    private String status;
+
+    @Transient
     private List<ScrumTeam> teams;
+
+    public Domain() {
+    }
+
+    public Domain(int projectId,
+                  String name,
+                  String description,
+                  String engagementType,
+                  String startDate,
+                  String endDate,
+                  String deliveryModel,
+                  String stakeholders,
+                  String engineeringManager,
+                  String scrumMaster,
+                  String technology,
+                  String status) {
+        this.projectId = projectId;
+        this.name = name;
+        this.description = description;
+        this.engagementType = engagementType;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.deliveryModel = deliveryModel;
+        this.stakeholders = stakeholders;
+        this.engineeringManager = engineeringManager;
+        this.scrumMaster = scrumMaster;
+        this.technology = technology;
+        this.status = status;
+    }
 
     public int getId() {
         return id;
@@ -25,6 +88,22 @@ public class Domain {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -43,19 +122,19 @@ public class Domain {
         this.engagementType = engagementType;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 
@@ -98,6 +177,12 @@ public class Domain {
     public void setTechnology(String technology) {
         this.technology = technology;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) { this.status = status; }
 
     public List<ScrumTeam> getTeams() {
         return teams;
