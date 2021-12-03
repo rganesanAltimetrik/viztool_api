@@ -16,4 +16,9 @@ public class DomainServiceImpl implements DomainService {
     public void save(Domain domain) {
         domainRepository.save(domain);
     }
+
+    @Override
+    public Domain get(int id) {
+        return domainRepository.getById(id);
+    }
 }

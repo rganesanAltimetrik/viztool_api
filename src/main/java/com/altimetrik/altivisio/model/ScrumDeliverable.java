@@ -1,5 +1,6 @@
 package com.altimetrik.altivisio.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +14,8 @@ public class ScrumDeliverable {
     @Id
     private int id;
 
-    @Column(name = "ScrumMetricsId")
+    @Transient
+//    @Column(name = "ScrumMetricsId")
     private int scrumMetricId;
 
     @Column(name = "Metric_ID")
@@ -42,6 +44,11 @@ public class ScrumDeliverable {
 
     @Column(name = "Status")
     private String status;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "scrumMetricsId", nullable = false)
+    private ScrumMetric scrumMetric;
 
     public ScrumDeliverable() {
     }
@@ -153,4 +160,18 @@ public class ScrumDeliverable {
     }
 
     public void setStatus(String status) { this.status = status; }
+
+    public int getScrumMetricId() {
+        return scrumMetricId;
+    }
+
+    public void setScrumMetricId(int scrumMetricId) {
+        this.scrumMetricId = scrumMetricId;
+    }
+
+    public void setScrumMetric(ScrumMetric scrumMetric) {
+        this.scrumMetric = scrumMetric;
+    }
+
+
 }

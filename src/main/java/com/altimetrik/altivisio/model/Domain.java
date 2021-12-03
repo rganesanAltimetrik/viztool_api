@@ -1,21 +1,26 @@
 package com.altimetrik.altivisio.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "domains")
-public class Domain {
+public class Domain implements Serializable {
 
     @Id
     private int id;
 
-    @Column(name = "Project_id")
-    private int projectId;
+    @JsonIgnore
+    //@Column(name = "Project_id")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "project_id", nullable = false)
+    private Project project;
 
     @Column(name = "Name")
     private String name;
@@ -50,7 +55,8 @@ public class Domain {
     @Column(name = "Status")
     private String status;
 
-    @Transient
+
+    @OneToMany(mappedBy = "domain")
     private List<ScrumTeam> teams;
 
     public Domain() {
@@ -68,7 +74,7 @@ public class Domain {
                   String scrumMaster,
                   String technology,
                   String status) {
-        this.projectId = projectId;
+       // this.projectId = projectId;
         this.name = name;
         this.description = description;
         this.engagementType = engagementType;
@@ -90,12 +96,12 @@ public class Domain {
         this.id = id;
     }
 
-    public int getProjectId() {
-        return projectId;
+    public Project getProject() {
+        return project;
     }
 
-    public void setProjectId(int projectId) {
-        this.projectId = projectId;
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     public String getName() {

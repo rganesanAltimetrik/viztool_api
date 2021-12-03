@@ -1,20 +1,25 @@
 package com.altimetrik.altivisio.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "scrumteams")
-public class ScrumTeam {
+public class ScrumTeam implements Serializable {
 
     @Id
     private int id;
 
-    @Column(name = "Domain_id")
-    private int domainId;
+    //@Column(name = "Domain_id")
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "Domain_id", nullable = false)
+    private Domain domain;
 
     @Column(name = "Name")
     private String name;
@@ -25,8 +30,9 @@ public class ScrumTeam {
     @Column(name = "Size")
     private int size;
 
-    @Transient
+    @OneToMany(mappedBy = "scrumTeam")
     List<ScrumMetric> scrumMetrics;
+
 
     public ScrumTeam() {
     }
@@ -35,7 +41,7 @@ public class ScrumTeam {
                      String name,
                      String description,
                      int size) {
-        this.domainId = domainId;
+        this.domain.setId(domainId);
         this.name = name;
         this.description = description;
         this.size = size;
@@ -49,12 +55,12 @@ public class ScrumTeam {
         this.id = id;
     }
 
-    public int getDomainId() {
-        return domainId;
+    public Domain getDomain() {
+        return domain;
     }
 
-    public void setDomainId(int domainId) {
-        this.domainId = domainId;
+    public void setDomain(Domain domain) {
+        this.domain = domain;
     }
 
     public String getName() {
@@ -88,4 +94,6 @@ public class ScrumTeam {
     public void setScrumMetrics(List<ScrumMetric> scrumMetrics) {
         this.scrumMetrics = scrumMetrics;
     }
+
+
 }

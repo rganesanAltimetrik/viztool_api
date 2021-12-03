@@ -9,5 +9,5 @@ import java.util.Map;
 
 @Repository
 public interface ProjectRepository extends JpaRepository<Project,Integer> {
-    Map<String, String> getProjectDetail(int projectId);
+    //Project getProjectDetail(int projectId);
 }

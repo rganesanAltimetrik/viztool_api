@@ -31,9 +31,10 @@ public class ProjectController {
 
 
     @GetMapping("projects/{projectId}")
-    @ResponseBody
-    public Map<String,String> getProjectId(@PathVariable int projectId){
-        return projectService.getProjectDetails(projectId);
+    public Project getProjectId(@PathVariable int projectId){
+        projectService.save(new Project("test1","test21"));
+        Project project = projectService.get(projectId);
+        return project;
     }
 
 
