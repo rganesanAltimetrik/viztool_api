@@ -1,5 +1,6 @@
 package com.altimetrik.altivisio.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,13 +15,14 @@ public class ScrumMetric {
     @Id
     private int id;
 
-    @Column(name = "Team_id")
+    @Transient
     private int teamId;
 
     @Column(name = "Average_last_6_sprints")
     private int averageLast6Sprint;
 
-    @Column(name = "Sprint_name")
+    @Transient
+    //@Column(name = "Sprint_name")
     private String sprintName;
 
     @Column(name = "Velocity")
@@ -35,8 +37,13 @@ public class ScrumMetric {
     @Column(name = "Status")
     private String status;
 
-    @Transient
-    private List<ScrumDeliverable> scrumDeliverable;
+    @OneToMany(mappedBy = "scrumMetric")
+    private List<ScrumDeliverable> scrumDeliverables;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "team_id", nullable = false)
+    private ScrumTeam scrumTeam;
 
     public ScrumMetric() {
     }
@@ -121,9 +128,28 @@ public class ScrumMetric {
         this.status = status;
     }
 
-    public List<ScrumDeliverable> getSprintDeliverable() {
-        return scrumDeliverable;
+
+    public String getStatus() {
+        return status;
     }
 
-    public void setSprintDeliverable(List<ScrumDeliverable> scrumDeliverable) { this.scrumDeliverable = scrumDeliverable; }
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<ScrumDeliverable> getScrumDeliverables() {
+        return scrumDeliverables;
+    }
+
+    public void setScrumDeliverables(List<ScrumDeliverable> scrumDeliverables) {
+        this.scrumDeliverables = scrumDeliverables;
+    }
+
+    public ScrumTeam getScrumTeam() {
+        return scrumTeam;
+    }
+
+    public void setScrumTeam(ScrumTeam scrumTeam) {
+        this.scrumTeam = scrumTeam;
+    }
 }

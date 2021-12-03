@@ -1,14 +1,16 @@
 package com.altimetrik.altivisio.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "project")
-public class Project {
+public class Project implements Serializable {
 
     @Id
     private int id;
@@ -19,7 +21,8 @@ public class Project {
     @Column(name = "engineering_leader")
     private String leader;
 
-    @Transient
+
+    @OneToMany(mappedBy = "project")
     List<Domain> domains;
 
     public Project() {

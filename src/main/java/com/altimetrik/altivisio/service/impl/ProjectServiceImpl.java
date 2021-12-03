@@ -23,11 +23,14 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public void save(Project project) {
-        projectRepository.save(project);
+
+       // projectRepository.save(project);
+        Project project1 = projectRepository.getById(10);
+        System.out.println(project1);
     }
 
     @Override
     public Project get(int projectId) {
-        return projectRepository.getById(projectId);
+        return projectRepository.findById(projectId).get();
     }
 }

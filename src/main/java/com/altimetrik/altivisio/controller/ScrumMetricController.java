@@ -41,8 +41,7 @@ public class ScrumMetricController {
     @GetMapping("metrics/{projectId}")
     @ResponseBody
     public ResponseEntity<Project> velocityMetrics(@PathVariable int projectId){
-        projectService.save(new Project("Ancestry","Siva"));
-        projectService.get(1);
+        Domain domain = domainService.get(projectId);
         return new ResponseEntity<>(new Project(), HttpStatus.OK);
     }
 

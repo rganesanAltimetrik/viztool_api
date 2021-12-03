@@ -31,9 +31,9 @@ public class ProjectController {
 
 
     @GetMapping("projects/{projectId}")
-    @ResponseBody
-    public Map<String,String> getProjectId(@PathVariable int projectId){
-        return projectService.getProjectDetails(projectId);
+    public ResponseEntity<Project> getProjectId(@PathVariable int projectId){
+        Project project = projectService.get(projectId);
+        return new ResponseEntity<>(project, HttpStatus.ACCEPTED);
     }
 
 
