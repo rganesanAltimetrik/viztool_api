@@ -21,9 +21,9 @@ public class ScrumMetric {
     @Column(name = "Average_last_6_sprints")
     private int averageLast6Sprint;
 
-    @Transient
-    //@Column(name = "Sprint_name")
-    private String sprintName;
+
+    @Column(name = "sprintId")
+    private String sprintId;
 
     @Column(name = "Velocity")
     private int velocity;
@@ -57,7 +57,7 @@ public class ScrumMetric {
                        String status) {
         this.teamId =  teamId;
         this.averageLast6Sprint = averageLast6Sprint;
-        this.sprintName = sprintName;
+      //  this.sprintName = sprintName;
         this.velocity = velocity;
         this.saydoRatio = saydoRatio;
         this.burndownRatio = burndownRatio;
@@ -88,12 +88,12 @@ public class ScrumMetric {
         this.averageLast6Sprint = averageLast6Sprint;
     }
 
-    public String getSprintName() {
-        return sprintName;
+    public String getSprintId() {
+        return sprintId;
     }
 
-    public void setSprintName(String sprintName) {
-        this.sprintName = sprintName;
+    public void setSprintId(String sprintId) {
+        this.sprintId = sprintId;
     }
 
     public int getVelocity() {
