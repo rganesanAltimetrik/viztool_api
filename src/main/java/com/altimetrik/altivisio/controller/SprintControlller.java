@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController("api/v1/sprints")
+@RestController("api/")
 public class SprintControlller {
 
     @Autowired
     private SprintService sprintService;
 
-    @GetMapping("/")
+    @GetMapping("/v1/sprints")
     public ResponseEntity<List<Sprint>> getAll() {
         return new ResponseEntity<>(sprintService.getAll(), HttpStatus.ACCEPTED);
     }
