@@ -31,10 +31,9 @@ public class ProjectController {
 
 
     @GetMapping("projects/{projectId}")
-    public Project getProjectId(@PathVariable int projectId){
-        projectService.save(new Project("test1","test21"));
+    public ResponseEntity<Project> getProjectId(@PathVariable int projectId){
         Project project = projectService.get(projectId);
-        return project;
+        return new ResponseEntity<>(project, HttpStatus.ACCEPTED);
     }
 
 
