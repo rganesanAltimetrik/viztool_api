@@ -22,8 +22,8 @@ public class ScrumMetric {
     private int averageLast6Sprint;
 
 
-    @Column(name = "sprintId")
-    private String sprintId;
+    @Column(name = "sprint_id")
+    private int sprintId;
 
     @Column(name = "Velocity")
     private int velocity;
@@ -88,11 +88,11 @@ public class ScrumMetric {
         this.averageLast6Sprint = averageLast6Sprint;
     }
 
-    public String getSprintId() {
+    public int getSprintId() {
         return sprintId;
     }
 
-    public void setSprintId(String sprintId) {
+    public void setSprintId(int sprintId) {
         this.sprintId = sprintId;
     }
 

@@ -10,5 +10,6 @@ import java.util.Map;
 public interface ProjectService {
     void save(Project project);
     Project get(int projectId);
+    Project getByProjectIdSprintId(int projectId, int sprintId);
 
 }

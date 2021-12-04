@@ -33,4 +33,9 @@ public class ProjectServiceImpl implements ProjectService {
     public Project get(int projectId) {
         return projectRepository.findById(projectId).get();
     }
+
+    @Override
+    public Project getByProjectIdSprintId(int projectId, int sprintId) {
+        return projectRepository.getProjectByIdAndDomainsTeamsScrumMetricsSprintId(projectId, sprintId);
+    }
 }
