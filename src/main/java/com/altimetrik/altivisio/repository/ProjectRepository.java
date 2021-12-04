@@ -9,5 +9,5 @@ import java.util.Map;
 
 @Repository
 public interface ProjectRepository extends JpaRepository<Project,Integer> {
-    //Project getProjectDetail(int projectId);
+    Project getProjectByIdAndDomainsTeamsScrumMetricsSprintId(int projectId, int sprintId);
 }

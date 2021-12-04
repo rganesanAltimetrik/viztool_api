@@ -36,6 +36,12 @@ public class ProjectController {
         return new ResponseEntity<>(project, HttpStatus.ACCEPTED);
     }
 
+    @GetMapping("projects/{projectId}/{sprintId}")
+    public ResponseEntity<Project> getProjectIdSprintId(@PathVariable int projectId, @PathVariable int  sprintId){
+        Project project = projectService.getByProjectIdSprintId(projectId, sprintId);
+        return new ResponseEntity<>(project, HttpStatus.ACCEPTED);
+    }
+
 
 
 
