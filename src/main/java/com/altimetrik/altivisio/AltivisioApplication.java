@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 		//(scanBasePackages={"com.altimetrik.altivisio.service","com.altimetrik.altivisio.repository"})
-@ComponentScan(basePackages = {"com.altimetrik.altivisio.service","com.altimetrik.altivisio.repository","com.altimetrik.altivisio.config","com.altimetrik.altivisio.controller"})
+@ComponentScan(basePackages = {"com.altimetrik.altivisio.service","com.altimetrik.altivisio.repository","com.altimetrik.altivisio.config","com.altimetrik.altivisio.controller","com.altimetrik.altivisio.scheduler"})
 
 public class AltivisioApplication {
 

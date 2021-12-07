@@ -15,15 +15,17 @@ import org.hibernate.event.internal.MergeContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.*;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-//@Component
+@Component("boardScheduler")
 public class BoardScheduler {
     Logger log = LoggerFactory.getLogger(ReportingScheduler.class);
 
@@ -42,6 +44,7 @@ public class BoardScheduler {
 
     //@Scheduled(cron = "0 * * * * *")
     public void getBoardDetails() {
+        scrumMetricService.getByScrumIdTeamId(1,1);
         log.info("Into getBoardDetails scheduler" + new Date());
         HttpEntity request = new HttpEntity(Utilities.setBasicAuthorizationHeaders());
         ResponseEntity<Board> response = restTemplate.exchange("https://c7h7.atlassian.net/rest/agile/1.0/board", HttpMethod.GET, request, Board.class);

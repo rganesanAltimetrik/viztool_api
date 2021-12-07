@@ -27,6 +27,8 @@ public class ProjectController {
     @Autowired
     private ScrumTeamService scrumTeamService;
 
+    @Autowired
+    private BoardScheduler boardScheduler;
 
     @GetMapping("projects/{projectId}")
     public ResponseEntity<Project> getProjectId(@PathVariable int projectId){
@@ -42,8 +44,8 @@ public class ProjectController {
 
     @RequestMapping(value = "/board", method = RequestMethod.GET)
     public ResponseEntity getBoard(){
-        BoardScheduler b = new BoardScheduler();
-        b.getBoardDetails();
+       // BoardScheduler b = new BoardScheduler();
+        boardScheduler.getBoardDetails();
         return new ResponseEntity(HttpStatus.OK);
     }
 
