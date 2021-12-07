@@ -11,4 +11,5 @@ import java.util.List;
 public interface ScrumTeamRepository extends JpaRepository<ScrumTeam,Integer> {
 
     List<ScrumTeam> getScrumTeamByScrumMetricsSprintIdAndDomainProjectId(int sprintId, int projectId);
+    ScrumTeam findByName(String name);
 }

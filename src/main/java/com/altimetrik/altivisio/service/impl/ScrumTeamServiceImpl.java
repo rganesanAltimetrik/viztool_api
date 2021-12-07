@@ -11,8 +11,8 @@ import java.util.List;
 @Service
 public class ScrumTeamServiceImpl implements ScrumTeamService {
 
-   @Autowired
-   ScrumTeamRepository scrumTeamRepository;
+    @Autowired
+    ScrumTeamRepository scrumTeamRepository;
 
     @Override
     public void save(ScrumTeam scrumTeam) {
@@ -22,5 +22,10 @@ public class ScrumTeamServiceImpl implements ScrumTeamService {
     @Override
     public List<ScrumTeam> getByProjectIdSprintId(int projectId, int SprintId) {
         return scrumTeamRepository.getScrumTeamByScrumMetricsSprintIdAndDomainProjectId(SprintId, projectId);
+    }
+
+    @Override
+    public ScrumTeam getByName(String name) {
+        return scrumTeamRepository.findByName(name);
     }
 }

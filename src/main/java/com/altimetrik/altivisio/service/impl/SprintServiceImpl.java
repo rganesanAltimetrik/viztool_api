@@ -18,4 +18,9 @@ public class SprintServiceImpl implements SprintService {
     public List<Sprint> getAll() {
         return sprintRepository.findAll();
     }
+
+//    @Override
+//    public Sprint getSprintIdByName(String name) {
+//        return sprintRepository.findByName(name);
+//    }
 }

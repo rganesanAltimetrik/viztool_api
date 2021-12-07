@@ -1,6 +1,7 @@
 package com.altimetrik.altivisio.service.impl;
 
 import com.altimetrik.altivisio.model.Project;
+import com.altimetrik.altivisio.model.ScrumTeam;
 import com.altimetrik.altivisio.repository.ProjectRepository;
 import com.altimetrik.altivisio.service.ProjectService;
 import com.altimetrik.altivisio.utils.DatabaseManager;
@@ -37,5 +38,10 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public Project getByProjectIdSprintId(int projectId, int sprintId) {
         return projectRepository.getProjectByIdAndDomainsTeamsScrumMetricsSprintId(projectId, sprintId);
+    }
+
+    @Override
+    public Project getByName(String name) {
+        return projectRepository.findByName(name);
     }
 }

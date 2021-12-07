@@ -12,7 +12,7 @@ public class Utilities {
 
     public static HttpHeaders setBasicAuthorizationHeaders() {
         HttpHeaders headers = new HttpHeaders();
-        headers.setBasicAuth("gpalani6799@altimetrik.com", "5r36VNQDR8Cdu1JpjciL5225");
+        headers.setBasicAuth("gpalani6799@altimetrik.com", "vMZ3kVjpgInDrko9iIzO4DE2");
         return  headers;
     }
 }

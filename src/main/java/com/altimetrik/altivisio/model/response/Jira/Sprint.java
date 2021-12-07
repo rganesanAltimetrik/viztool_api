@@ -2,7 +2,7 @@ package com.altimetrik.altivisio.model.response.Jira;
 
 import java.util.Date;
 
-public class Scrum {
+public class Sprint {
     public int id;
     public String self;
     public String state;
